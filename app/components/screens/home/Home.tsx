@@ -136,14 +136,13 @@ const Home: FC = () => {
                 {weather?.forecast?.forecastday?.map((day, index) => {
                   const dayName = moment(day.date).format('dd');
                   return (
-                    <>
+                    <View key={index}>
                       <DailyForecastItem
-                        key={index}
                         temp={day?.day.avgtemp_c}
                         image={weatherImg[day?.day?.condition?.text ?? '']}
                         day={dayName}
                       />
-                    </>
+                    </View>
                   );
                 })}
               </ScrollView>
